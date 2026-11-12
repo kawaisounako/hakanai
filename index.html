@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <title>儚い女になるゲーム</title>
 <meta name="description" content="表では儚く、裏では必死に。白いワンピースの彼女のひと夏を、全9話のミニゲームで。エンディング18種。">
 <meta property="og:title" content="儚い女になるゲーム">
@@ -23,7 +23,10 @@
 :root{--h:0;--fw:800;--paper:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .2 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;height:100%;background:#fff}
-body{font-family:'Noto Sans JP',system-ui,sans-serif;overflow:hidden;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:manipulation}
+html,body{touch-action:manipulation;-webkit-text-size-adjust:100%;overscroll-behavior:none}
+*{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#stage,#stage *{touch-action:none}
+body{font-family:'Noto Sans JP',system-ui,sans-serif;overflow:hidden;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 button{font-family:inherit;font-weight:inherit;letter-spacing:inherit;color:inherit;cursor:pointer}
 
 #app{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .2 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"),#f3eee3;
@@ -150,14 +153,15 @@ button{font-family:inherit;font-weight:inherit;letter-spacing:inherit;color:inhe
 
 /* G6 ルーレット */
 .reels{position:absolute;left:4cqw;right:4cqw;top:12cqw;display:grid;grid-template-columns:repeat(4,1fr);gap:2cqw}
-.reelcol .cap{text-align:center;font-size:3.8cqw;margin-bottom:1.2cqw}
+.reelcol .cap{position:static;font-family:inherit;font-weight:700;text-align:center;font-size:3.8cqw;margin-bottom:1.2cqw;color:#5a4a52}
 .reel{position:relative;height:54cqw;overflow:hidden;background:#fff;border-radius:3cqw;border:.7cqw solid #eee}
 .reel.cur{border-color:#d8452b;box-shadow:0 0 0 .8cqw rgba(216,69,43,.2)}
 .reel.good{border-color:#7fd0a5}
 .reel.bad{border-color:#b9b0b6}
 .strip{position:absolute;left:0;right:0;top:0;will-change:transform}
-.ri{height:18cqw;display:flex;align-items:center;justify-content:center;font-family:'Klee One',cursive;font-weight:600;font-size:3.6cqw;line-height:1.25;text-align:center;padding:0 1cqw;border-bottom:1px dashed rgba(43,38,34,.15)}
+.ri{height:18cqw;display:flex;align-items:center;justify-content:center;font-family:'Klee One',cursive;font-weight:600;font-size:3.6cqw;line-height:1.25;text-align:center;padding:0 1cqw;word-break:keep-all;overflow-wrap:anywhere;line-break:strict;border-bottom:1px dashed rgba(43,38,34,.15)}
 .ri.g{background:#fbeef1;color:#b0485f}
+.ri.long{font-size:3.15cqw}
 .reel::after{content:'';position:absolute;left:0;right:0;top:18cqw;height:18cqw;border-top:.5cqw solid #d8452b;border-bottom:.5cqw solid #d8452b;background:rgba(216,69,43,.06);pointer-events:none}
 .reel::before{content:'';position:absolute;inset:0;background:linear-gradient(#fff,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 70%,#fff);z-index:1;pointer-events:none}
 .need{position:absolute;left:0;right:0;top:4cqw;text-align:center;font-size:4cqw}
@@ -494,7 +498,7 @@ button{font-family:inherit;font-weight:inherit;letter-spacing:inherit;color:inhe
 .hide-g{position:absolute;left:57.5%;bottom:4%;width:18%;z-index:1}
 .nightroom{background:linear-gradient(#2c3550 0 64%,#4a3f3a 64%)}
 .vbar-wrap{position:absolute;left:6cqw;right:6cqw;top:5cqw}
-.vbar-lab{font-size:3.6cqw;color:#fffdf6;margin-bottom:1.2cqw}
+.vbar-lab{font-size:3.6cqw;color:#fffdf6;margin-bottom:4.6cqw}
 .vbar{position:relative;height:10cqw;border:.6cqw solid #fffdf6;background:#fffdf6}
 .vz{position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:3.2cqw;color:#2b2622;white-space:nowrap;overflow:hidden}
 .vz.quiet{left:0;background:#c9c3bb}
@@ -505,7 +509,7 @@ button{font-family:inherit;font-weight:inherit;letter-spacing:inherit;color:inhe
 .vneedle::after{content:'';position:absolute;left:-.5cqw;top:-.4cqw;width:1cqw;height:14cqw;background:#fffdf6}
 .vneedle.s{border-top-color:#ffd9cf}.vneedle.s::after{background:#ffd9cf}
 .vneedle.l{border-top-color:#ff6b4a}.vneedle.l::after{background:#ff6b4a}
-.vhim-say{position:absolute;left:6cqw;right:6cqw;top:24cqw;text-align:center;background:#fffdf6;color:#2b2622;border:.5cqw solid #2b2622;border-radius:3cqw;padding:1.2cqw 2cqw;font-size:4cqw}
+.vhim-say{position:absolute;left:6cqw;right:6cqw;top:27.5cqw;text-align:center;background:#fffdf6;color:#2b2622;border:.5cqw solid #2b2622;border-radius:3cqw;padding:1.2cqw 2cqw;font-size:4cqw}
 .vhim-say.bad{border-color:#d8452b;color:#d8452b;font-weight:900}
 .vhelp{position:absolute;left:4cqw;right:4cqw;bottom:20cqw;text-align:center;font-size:3.6cqw;color:#fffdf6;background:rgba(43,38,34,.6);border-radius:2cqw;padding:1.4cqw;transition:opacity .4s}
 .vhelp.hide{opacity:0}
@@ -516,6 +520,8 @@ button{font-family:inherit;font-weight:inherit;letter-spacing:inherit;color:inhe
 .vtalk{position:absolute;left:38cqw;top:38cqw;width:56cqw;height:44cqw;background:#fffdf6;border:.6cqw solid #2b2622;border-radius:4cqw;padding:2.4cqw;overflow:hidden;display:flex;align-items:flex-end}
 .vtalk::before{content:'';position:absolute;left:-3.4cqw;top:14cqw;border:2cqw solid transparent;border-right-color:#2b2622}
 .vtext{font-family:'Klee One',cursive;line-height:1.25;color:#2b2622;word-break:break-all}
+.vtext:empty::before{content:'（……）';color:#b9b0a6;font-size:4.4cqw}
+.vtalk:has(.vtext:empty){align-items:center;justify-content:center}
 .vtext .loud{font-family:'Noto Sans JP',sans-serif;font-weight:900;color:#d8452b}
 .vhim{position:absolute;left:46cqw;top:6cqw;width:34cqw;display:flex;flex-direction:column;align-items:center}
 .vhim-face{width:16cqw;height:16cqw;border-radius:50%;overflow:hidden;border:.6cqw solid #2b2622;background:#f3eee3}
@@ -1390,7 +1396,7 @@ const GAMES = [
     S.innerHTML = `<div class="bg" style="background:linear-gradient(#fff0f6,#f3f0ff)"></div>
       <div class="need">儚いやつで止めろ</div>
       <div class="reels">${reels.map((r, i) => `<div class="reelcol"><div class="cap">${REELS[i].cap}</div><div class="reel${i === 0 ? ' cur' : ''}"><div class="strip">${
-        [0, 1, 2].map(() => r.items.map(it => `<div class="ri${it.good ? ' g' : ''}"><span>${it.n}</span></div>`).join('')).join('')}</div></div></div>`).join('')}</div>
+        [0, 1, 2].map(() => r.items.map(it => `<div class="ri${it.good ? ' g' : ''}${it.n.length >= 9 ? ' long' : ''}"><span>${jpWbr(it.n)}</span></div>`).join('')).join('')}</div></div></div>`).join('')}</div>
       <div class="combo"></div>
       <button class="tapbtn">ストップ</button>`;
     const reelEls = [...S.querySelectorAll('.reel')], strips = [...S.querySelectorAll('.strip')], combo = $('.combo', S);
@@ -1967,7 +1973,7 @@ function howtoScreen() {
       <p><b>点数</b>　各話0〜100点。9話の平均が「儚さ度」です。</p>
       <p><b>汗</b>　焦って連打したり、関係ないところで操作したりすると、画面下の「裏」で汗をかきます。落ち着いて操作すれば汗はかきません。</p>
       <p><b>儚くなると</b>　点数が上がるほど、画面の色も文字も薄くなっていきます。後半は見えにくいです。</p>
-      <p><b>エンディング</b>　儚さ度と汗、それからプレイ中の出来事で、16通りに分かれます。</p>
+      <p><b>エンディング</b>　儚さ度と汗、それからプレイ中の出来事で、18通りに分かれます。</p>
       <p><b>シェア</b>　結果は9つの四角で出ます。⬜は儚い（S・A）、🟫は生活感（B・C）、🟥はバレた（D）。</p>
       <p class="how-note">ランク　S 90点〜／A 75点〜／B 55点〜／C 30点〜／D それ未満</p>
     </div>
@@ -2119,6 +2125,21 @@ function result(e, s, hissi) {
   $('#toTitle').addEventListener('click', titleScreen);
 }
 
+
+// ---- 連打で画面が拡大・縮小しないようにする（iPhoneは user-scalable=no を無視するため）----
+(() => {
+  const stop = e => e.preventDefault();
+  ['gesturestart', 'gesturechange', 'gestureend'].forEach(ev => document.addEventListener(ev, stop, { passive: false }));
+  document.addEventListener('touchmove', e => { if (e.touches.length > 1 || (e.scale && e.scale !== 1)) e.preventDefault(); }, { passive: false });
+  let lastEnd = 0;
+  document.addEventListener('touchend', e => {
+    const now = Date.now();
+    // ボタンやリンク以外での素早い2回目のタップは、ダブルタップ拡大として扱わせない
+    if (now - lastEnd < 350 && !e.target.closest('button, a, input, textarea, select, label')) e.preventDefault();
+    lastEnd = now;
+  }, { passive: false });
+  document.addEventListener('dblclick', stop, { passive: false });
+})();
 titleScreen();
 })();
 </script>
